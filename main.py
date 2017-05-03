@@ -19,6 +19,18 @@ def most_frequent_word():
         top = top if top[0] >= val else (val, word)
     return "%s: %s"%(top[0], top[1])
 
+def mostFreqV2():
+    end = { }
+    for word in wordList:
+        if word not in end:
+            end[word] = 1
+        else:
+            end[word] += 1
+    top = (0, "")
+    for item in end.keys():
+        top = top if top[0] >= end[item] else (end[item], item )
+    return "%s: %s"%(top[1], top[0])
+
 print find_word("the")
 find_word_list( ["the", "a", "wow"])
-print most_frequent_word()
+print mostFreqV2()
